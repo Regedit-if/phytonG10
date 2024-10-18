@@ -1,0 +1,359 @@
+import random
+
+# Función principal del menú
+def menu():
+    while True:
+        print("\n--- Menú ---")
+        print("1. Ejercicios if else")
+        print("2. Ejercicios while")
+        print("3. Ejercicios for")
+        print("4. Ejercicios lambda")
+        print("5. Salir")
+        
+        opcion = input("Seleccione una opción (1-5): ")
+
+        if opcion == '1':
+            ejercicios_if_else()
+        elif opcion == '2':
+            ejercicios_while()
+        elif opcion == '3':
+            ejercicios_for()
+        elif opcion == '4':
+            ejercicios_lambda()
+        elif opcion == '5':
+            print("Programa terminado.")
+            break
+        else:
+            print("Opción no válida. Por favor, seleccione una opción entre 1 y 5.")
+
+# Funciones para los ejercicios de if-else
+def ejercicios_if_else():
+    while True:
+        print("\n--- Ejercicios if else ---")
+        print("1. Letras del abecedario")
+        print("2. Ángulos y cuadrantes")
+        print("3. Clasificar rendimiento")
+        print("4. Clasificar temperatura")
+        print("5. Verificar jengibre")
+        print("6. Regresar al menú principal")
+
+        opcion_if_else = input("Seleccione una opción (1-6): ")
+
+        if opcion_if_else == "1": 
+            letras_del_abecedario()
+        elif opcion_if_else == "2":
+            angulo_y_cuadrantes()
+        elif opcion_if_else == "3":
+            clasificar_rendimiento()
+        elif opcion_if_else == "4":
+            clasificar_temperatura()
+        elif opcion_if_else == "5":
+            verificar_jengibre()
+        elif opcion_if_else == "6":
+            break
+        else:
+            print("Opción no válida. Por favor, seleccione una opción entre 1 y 6.")
+
+# Funciones para los ejercicios de while
+def ejercicios_while():
+    while True:
+        print("\n--- Ejercicios while ---")
+        print("1. Imprimir números inversos")
+        print("2. Imprimir números de dos en dos")
+        print("3. Contar vocales")
+        print("4. Tirar dado hasta seis")
+        print("5. Suma de dígitos de dos dígitos")
+        print("6. Regresar al menú principal")
+
+        opcion_while = input("Seleccione una opción (1-6): ")
+
+        if opcion_while == "1":
+            imprimir_numeros_inversos()
+        elif opcion_while == "2":
+            imprimir_numeros_de_dos_en_dos()
+        elif opcion_while == "3":
+            contar_vocales()
+        elif opcion_while == "4":
+            tirar_dado_hasta_seis()
+        elif opcion_while == "5":
+            suma_digitos_dos_digitos()
+        elif opcion_while == "6":
+            break
+        else:
+            print("Opción no válida. Por favor, seleccione una opción entre 1 y 6.")
+
+# Funciones para los ejercicios de for
+def ejercicios_for():
+    while True:
+        print("\n--- Ejercicios for ---")
+        print("1. Suma de cubos")
+        print("2. Pirámide de asteriscos")
+        print("3. Invertir cadena")
+        print("4. Buscar elemento en lista")
+        print("5. Regresar al menú principal")
+
+        opcion_for = input("Seleccione una opción (1-5): ")
+
+        if opcion_for == "1":
+            suma_cubos()
+        elif opcion_for == "2":
+            altura = int(input("Por favor, ingrese la altura de la pirámide: "))
+            piramide_de_asteriscos(altura)
+        elif opcion_for == "3":
+            cadena_usuario = input("Por favor, ingrese una cadena: ")
+            print(f"La cadena invertida es: {invertir_cadena(cadena_usuario)}")
+        elif opcion_for == "4":
+            elemento_a_buscar = input("Por favor, ingrese el elemento a buscar: ")
+            lista_caracteres = list("carros, perros, jirafas")
+            resultado = buscar_elemento_en_lista(lista_caracteres, elemento_a_buscar)
+            if resultado:
+                print(f"El elemento '{elemento_a_buscar}' fue encontrado en la lista.")
+            else:
+                print(f"El elemento '{elemento_a_buscar}' no fue encontrado en la lista.")
+        elif opcion_for == "5":
+            break
+        else:
+            print("Opción no válida. Por favor, seleccione una opción entre 1 y 5.")
+
+# Funciones para los ejercicios de lambda
+def ejercicios_lambda():
+    while True:
+        print("\n--- Ejercicios lambda ---")
+        print("1. Sumar dos números")
+        print("2. Verificar número par")
+        print("3. Ordenar tuplas por segundo elemento")
+        print("4. Filtrar números mayores a 10")
+        print("5. Elevar al cuadrado")
+        print("6. Regresar al menú principal")
+
+        opcion_lambda = input("Seleccione una opción (1-6): ")
+
+        if opcion_lambda == "1":
+            sumar_dos_numeros()
+        elif opcion_lambda == "2":
+            verificar_numero_par()
+        elif opcion_lambda == "3":
+            tuplas = [(1, 3), (4, 1), (2, 2), (5, 0)]
+            tuplas_ordenadas = ordenar_tuplas_por_segundo_elemento(tuplas)
+            print("Lista original:", tuplas)
+            print("Lista ordenada según el segundo elemento:", tuplas_ordenadas)
+        elif opcion_lambda == "4":
+            numeros = [5, 12, 3, 18, 7, 22, 9, 15]
+            resultados = filtrar_numeros_mayores_a_10(numeros)
+            print("Números mayores a 10:", resultados)
+        elif opcion_lambda == "5":
+            numeros = [7, 10, 3, 4, 5]
+            resultados = elevar_al_cuadrado(numeros)
+            print("Números elevados al cuadrado:", resultados)
+        elif opcion_lambda == "6":
+            break
+        else:
+            print("Opción no válida. Por favor, seleccione una opción entre 1 y 6.")
+
+# Ejercicios if else
+def letras_del_abecedario():
+    while True:
+        letra = input("Por favor, ingrese una letra (o 'salir' para terminar): ").upper()
+        if letra == 'SALIR':
+            print("Programa terminado.")
+            break  
+        if letra.isalpha() and len(letra) == 1:
+            if letra <= 'M':
+                print("La letra es de las primeras letras del alfabeto.")
+            else:
+                print("La letra es de las últimas letras del alfabeto.")
+        else:
+            print("Por favor, ingrese solo una letra.")
+
+def angulo_y_cuadrantes():
+    while True:
+        angulo = input("Por favor, ingrese un ángulo (en grados) (o 'salir' para terminar): ")
+        if angulo.lower() == 'salir':  
+            print("Programa terminado.")
+            break
+        try:
+            angulo = int(angulo)  
+            angulo = angulo % 360
+            if 0 < angulo < 90:
+                print("El ángulo está en el primer cuadrante.")
+            elif 90 < angulo < 180:
+                print("El ángulo está en el segundo cuadrante.")
+            elif 180 < angulo < 270:
+                print("El ángulo está en el tercer cuadrante.")
+            elif 270 < angulo < 360:
+                print("El ángulo está en el cuarto cuadrante.")
+            elif angulo == 0 or angulo == 360:
+                print("El ángulo está en el eje positivo de X.")
+            elif angulo == 90:
+                print("El ángulo está en el eje positivo de Y.")
+            elif angulo == 180:
+                print("El ángulo está en el eje negativo de X.")
+            elif angulo == 270:
+                print("El ángulo está en el eje negativo de Y.")
+        except ValueError:
+            print("Por favor, ingrese un número válido para el ángulo.")
+
+def clasificar_rendimiento():
+    while True:
+        calificacion = input("Por favor, ingrese la calificación del estudiante (o 'salir' para terminar): ")
+        if calificacion.lower() == 'salir':  
+            print("Programa terminado.")
+            break
+        try:
+            calificacion = float(calificacion)  
+            if calificacion > 4.5:
+                rendimiento = "Excelente"
+            elif 3.5 <= calificacion <= 4.5:
+                rendimiento = "Bueno"
+            elif 3 <= calificacion < 3.5:
+                rendimiento = "Regular"
+            elif 0 <= calificacion < 3:
+                rendimiento = "Ins uficiente"
+            else:
+                rendimiento = "Calificación fuera de rango"
+            print(f"La calificación es: {calificacion}, Rendimiento: {rendimiento}")
+        except ValueError:
+            print("Por favor, ingrese un número válido para la calificación.")
+
+def clasificar_temperatura():
+    while True:
+        temperatura = input("Por favor, ingrese la temperatura en grados Celsius (o 'salir' para terminar): ")
+        if temperatura.lower() == 'salir':  
+            print("Programa terminado.")
+            break
+        try:
+            temperatura = int(temperatura)  
+            if temperatura < 10:
+                clasificacion = "Frío"
+            elif 10 <= temperatura < 25:
+                clasificacion = "Templado"
+            else:
+                clasificacion = "Cálido"
+            print(f"La temperatura es: {temperatura}°C, Clasificación: {clasificacion}")
+        except ValueError:
+            print("Por favor, ingrese un número válido para la temperatura.")
+
+def verificar_jengibre():
+    while True:
+        palabra = input("Por favor, ingrese la palabra 'Jengibre' (o 'salir' para terminar): ")
+        if palabra.lower() == "salir":  
+            print("Programa terminado.")
+            break
+        if palabra == "Jengibre":
+            print("Si, ¡El Jengibre es la mejor planta de todos los tiempos!")
+        elif palabra == "jengibre":
+            print("No, ¡quiero un gran Jengibre!")
+        else:
+            print(f"! Jengibre¡ No, {palabra} ")
+
+# Ejercicios while
+def imprimir_numeros_inversos():
+    numero = 20  
+    while numero >= 1: 
+        print(numero)   
+        numero -= 1     
+
+def imprimir_numeros_de_dos_en_dos():
+    numero = 2  
+    while numero <= 50:  
+        print(numero)    
+        numero += 2      
+
+def contar_vocales():
+    palabra = input("Por favor, ingrese una palabra: ")
+    vocales = "aeiouAEIOU"
+    contador = 0
+    indice = 0  
+    while indice < len(palabra):   
+        if palabra[indice] in vocales:  
+            contador += 1  
+        indice += 1  
+    print(f"La palabra '{palabra}' contiene {contador} vocales.")
+
+def tirar_dado_hasta_seis():
+    tiradas = 0  
+    resultado = 0  
+    while resultado != 6:  
+        resultado = random.randint(1, 6)  
+        tiradas += 1  
+        print(f"Tirada {tiradas}: {resultado}")  
+    print(f"¡Obtuviste un 6 después de {tiradas} tiradas!")
+
+def suma_digitos_dos_digitos():
+    while True:
+        numero = input("Por favor, ingrese un número de dos dígitos (o 'salir' para terminar): ")
+        if numero.lower() == 'salir':
+            print("Programa terminado.")
+            break
+        if numero.isdigit() and len(numero) == 2:
+            suma = 0
+            for digito in numero:
+                suma += int(digito)
+            print(f"La suma de los dígitos de {numero} es: {suma}")
+        else:
+            print("Entrada no válida. Asegúrese de ingresar un número de exactamente dos dígitos.")
+
+# Ejercicios for
+def suma_cubos():
+    suma = 0  
+    for numero in range(1, 51):  
+        suma += numero ** 3  
+    print(f"La suma de los cubos de los números del 1 al 50 es: {suma}")
+
+def piramide_de_asteriscos(altura):
+    altura = int(input("Por favor, ingrese la altura de la pirámide: "))
+    for i in range(1, altura + 1):  
+        print(' ' * (altura - i) + '*' * (2 * i - 1))
+
+def invertir_cadena(cadena):
+    cadena_invertida = ""  
+    for i in range(len(cadena) - 1, -1, -1):
+        cadena_invertida += cadena[i]  
+    return cadena_invertida  
+
+def buscar_elemento_en_lista(lista, elemento):
+    encontrado = False  
+    cadena = ''.join(lista)
+    for i in range(len(cadena) - len(elemento) + 1):  
+        if cadena[i:i + len(elemento)] == elemento:
+            encontrado = True
+            break  
+    return encontrado  
+
+# Ejercicios lambda
+def sumar_dos_numeros():
+    suma = lambda a, b: a + b
+    numero1 = int(input("Por favor, ingrese el primer número: "))
+    numero2 = int(input("Por favor, ingrese el segundo número: "))
+    resultado = suma(numero1, numero2)
+    print(f"La suma de {numero1} y {numero2} es: {resultado}")
+
+def verificar_numero_par():
+    es_par = lambda x: x % 2 == 0
+    while True:
+        entrada = input("Por favor, ingrese un número (o 'salir' para terminar): ")
+        if entrada.lower() == 'salir':
+            print("Programa terminado.")
+            break
+        try:
+            numero = int(entrada)
+            if es_par(numero):
+                print(f"El número {numero} es par.")
+            else:
+                print(f"El número {numero} es impar.")
+        except ValueError:
+            print("Por favor, ingrese un número válido.")
+
+def ordenar_tuplas_por_segundo_elemento(lista_tuplas):
+    lista_ordenada = sorted(lista_tuplas, key=lambda x: x[1])
+    return lista_ordenada
+
+def filtrar_numeros_mayores_a_10(numeros):
+    numeros_mayores_a_10 = list(filter(lambda x: x > 10, numeros))
+    return numeros_mayores_a_10
+
+def elevar_al_cuadrado(numeros):
+    return list(map(lambda x: x ** 2, numeros))
+
+# Llamar a la función del menú para iniciar el programa
+menu()
